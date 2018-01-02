@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { GC_USER_ID } from '../constants'
+
 
 class CreateLink extends Component {
 
@@ -39,13 +41,19 @@ class CreateLink extends Component {
 
 
 _createLink = async () => {
+  const postedById = localStorage.getItem(GC_USER_ID)
+  if (!postedById) {
+    console.error('No user logged in')
+    return
+  }
   const { description, url } = this.state
   //NOTE: that this name 'createLinkMutation' matched with the export default
   //NOTE: Apollo is injecting a function into the components props
   await this.props.createLinkMutation({
     variables: {
       description,
-      url
+      url,
+      postedById
     }
   })
   this.props.history.push(`/`)
@@ -53,16 +61,22 @@ _createLink = async () => {
 
 }
 // 1. It stores the mutation
-const CREATE_LINK_MUTATION = gql`# 2. You define the actual mutation with the two necesary arguments
-  mutation CreateLinkMutation($description: String!, $url: String!) {
+const CREATE_LINK_MUTATION = gql`
+  # 2. You define the actual mutation with the two necesary arguments
+  mutation CreateLinkMutation($description: String!, $url: String!, $postedById: ID!) {
     createLink(
       description: $description,
       url: $url,
+      postedById: $postedById
     ) {
       id
       createdAt
       url
       description
+      postedBy {
+        id
+        name
+      }
     }
   }
 `
