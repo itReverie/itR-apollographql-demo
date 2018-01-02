@@ -37,10 +37,9 @@ class CreateLink extends Component {
     )
   }
 
-// implementation of the actual mutation via the onClick on the subnit button
+
 _createLink = async () => {
   const { description, url } = this.state
-
   //NOTE: that this name 'createLinkMutation' matched with the export default
   //NOTE: Apollo is injecting a function into the components props
   await this.props.createLinkMutation({
@@ -49,9 +48,10 @@ _createLink = async () => {
       url
     }
   })
-}
+  this.props.history.push(`/`)
 }
 
+}
 // 1. It stores the mutation
 const CREATE_LINK_MUTATION = gql`# 2. You define the actual mutation with the two necesary arguments
   mutation CreateLinkMutation($description: String!, $url: String!) {
