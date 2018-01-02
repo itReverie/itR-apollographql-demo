@@ -41,7 +41,8 @@ class CreateLink extends Component {
 _createLink = async () => {
   const { description, url } = this.state
 
-  // note that this name 'createLinkMutation' matched with the export default
+  //NOTE: that this name 'createLinkMutation' matched with the export default
+  //NOTE: Apollo is injecting a function into the components props
   await this.props.createLinkMutation({
     variables: {
       description,
