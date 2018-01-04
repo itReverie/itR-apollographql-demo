@@ -22,7 +22,7 @@ export default async (event: FunctionEvent<EventData>) => {
     const graphcool = fromEvent(event)
     const api = graphcool.api('simple/v1')
 
-    const { email, password , name} = event.data
+    const { email, password, name} = event.data
 
     if (!validator.isEmail(email)) {
       return { error: 'Not a valid email' }
@@ -68,7 +68,7 @@ async function getUser(api: GraphQLClient, email: string): Promise<{ User }> {
   return api.request<{ User }>(query, variables)
 }
 
-async function createGraphcoolUser(api: GraphQLClient, email: string, password: string, name: string): Promise<string> {
+async function createGraphcoolUser(api: GraphQLClient, email: string, password: string, name: string): Promise{
   const mutation = `
     mutation createGraphcoolUser($email: String!, $password: String!, $name: String!) {
       createUser(
@@ -83,7 +83,7 @@ async function createGraphcoolUser(api: GraphQLClient, email: string, password: 
 
   const variables = {
     email,
-    password: password,
+    password,
     name
   }
 
