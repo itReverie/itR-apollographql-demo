@@ -1,0 +1,16 @@
+mutation {
+     createLink(
+      description: "casa",
+      url: "casa",
+      postedById: "cjby7obouduol0121vrlc1no7"
+    ) {
+      id
+      createdAt
+      url
+      description
+      postedBy {
+        id
+        name
+      }
+    }
+  }
