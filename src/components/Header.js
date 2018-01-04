@@ -10,14 +10,14 @@ class Header extends Component {
     return (
       <div className='flex pa1 justify-between nowrap orange'>
         <div className='flex flex-fixed black'>
-          <div className='fw7 mr1'>Hacker News</div>
-          <Link to='/' className='ml1 no-underline black'>new</Link>
+          <div className='fw7 mr1'>News</div>
+          <Link to='/' className='ml1 no-underline black'>List</Link>
           <div className='ml1'>|</div>
-          <Link to='/search' className='ml1 no-underline black'>search</Link>
+          <Link to='/search' className='ml1 no-underline black'>Search</Link>
           {userId &&
             <div className='flex'>
           <div className='ml1'>|</div>
-          <Link to='/create' className='ml1 no-underline black'>submit</Link>
+          <Link to='/create' className='ml1 no-underline black'>Submit</Link>
             </div>
           }
         </div>
@@ -27,9 +27,9 @@ class Header extends Component {
             localStorage.removeItem(GC_USER_ID)
             localStorage.removeItem(GC_AUTH_TOKEN)
             this.props.history.push(`/new/1`)
-          }}>logout</div>
+          }}>Logout</div>
           :
-          <Link to='/login' className='ml1 no-underline black'>login</Link>
+          <Link to='/login' className='ml1 no-underline black'>Login</Link>
         }
       </div>
       </div>
