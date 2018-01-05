@@ -1,0 +1,53 @@
+#create a user
+mutation {
+     createUser(
+      name: "brenda",
+      email: "brenda@itreverie.com",
+      password: "password"
+    ) {
+      id
+      createdAt
+    	updatedAt
+      name
+      email
+     	password
+    }
+  }
+
+
+#create a link
+mutation {
+     createLink(
+      description: "casa",
+      url: "casa",
+      postedById: "cjby7obouduol0121vrlc1no7"
+    ) {
+      id
+      createdAt
+      url
+      description
+      postedBy {
+        id
+        name
+      }
+    }
+  }
+
+
+#create vote
+mutation  {
+    createVote( userId:"cjc11w1yhk2j301026k565jcg",linkId: "cjc12r7epc80x0197scj6qydr") {
+      id
+      link {
+        votes {
+          id
+          user {
+            id
+          }
+        }
+      }
+      user {
+        id
+      }
+    }
+  }
