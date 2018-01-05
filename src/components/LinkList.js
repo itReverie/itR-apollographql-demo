@@ -63,8 +63,9 @@ _subscribeToNewLinks = () => {
       }
     `,
     updateQuery: (previous, { subscriptionData }) => {
+  console.log(subscriptionData);
   const newAllLinks = [
-    subscriptionData.Link.node,
+    subscriptionData.data.Link.node,
     ...previous.allLinks
   ]
   const result = {
