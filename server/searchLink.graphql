@@ -1,0 +1,49 @@
+//Example of a search
+mutation createUser($input: UserInput!) {
+  createUser(input: $input) {
+    id
+    username
+    email
+    phone
+    firstName
+    lastName
+  }
+}
+//Press in the Variables button
+{
+  "input": {
+    "username": "test",
+    "email": "test@test.cz",
+    "phone": "479332973",
+    "firstName": "David",
+    "lastName": "Test"
+  }
+}
+
+
+
+//Query hardcoded
+query {
+    allLinks(filter: {
+      OR: [{
+        url_contains: "mesa"
+      }, {
+        description_contains: "mesa"
+      }]
+    }) {
+      id
+      url
+      description
+      createdAt
+      postedBy {
+        id
+        name
+      }
+      votes {
+        id
+        user {
+          id
+        }
+      }
+    }
+}
