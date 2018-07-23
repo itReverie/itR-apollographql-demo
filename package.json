@@ -1,7 +1,16 @@
 {
-  "name": "hackernews-react-apollo",
+  "name": "graphql",
   "version": "0.1.0",
-  "keywords":["graphql", "grapcool", "apollo", "apollo client", "graphql demo", "graphql excercise", "graphql example", "graphql beginners"],
+  "keywords": [
+    "graphql",
+    "grapcool",
+    "apollo",
+    "apollo client",
+    "graphql demo",
+    "graphql excercise",
+    "graphql example",
+    "graphql beginners"
+  ],
   "private": true,
   "dependencies": {
     "apollo-client-preset": "^1.0.5",
